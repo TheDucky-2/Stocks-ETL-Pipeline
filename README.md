@@ -36,7 +36,7 @@ Alpha Vantage API -> Extract (Python) -> Transform -> Load -> PostgreSQL -> Airf
 
 ## Project Structure
 
-``
+```
 ├── dags/                  # Airflow DAGs
 │   └── etlstocks.py
 │
@@ -62,7 +62,7 @@ Alpha Vantage API -> Extract (Python) -> Transform -> Load -> PostgreSQL -> Airf
 ├── .dockerignore
 ├── .gitignore
 └── README.md
-``
+```
 
 ## Features
 
@@ -78,51 +78,52 @@ Alpha Vantage API -> Extract (Python) -> Transform -> Load -> PostgreSQL -> Airf
 
 1. Clone the repository
 
-``
+```bash
 git clone https://github.com/TheDucky-2/Stocks-ETL-Pipeline.git
-``
-cd stock-etl-pipeline
+
+cd Stocks-ETL-Pipeline
+```
 
 2. Set up environment variables
 
 Create a .env file:
 
+```plaintext
 ALPHA_VANTAGE_API_KEY=your_api_key
-POSTGRES_USER=airflow
-POSTGRES_PASSWORD=airflow
-POSTGRES_DB=stocks
+POSTGRES_USER=your_postgres_username
+POSTGRES_PASSWORD=your_postgres_password
+POSTGRES_DB=your_db_name
+```
+
 3. Run with Docker Compose
+
+```bash
 docker-compose up --build
+```
 4. Access Airflow
-Web UI: http://localhost:8080
-Default login depends on your Airflow config
-Airflow DAG
+
+- Web UI: http://etl.localhost:6563
+- Default login depends on your Airflow config
+
+## Airflow DAG
 
 The DAG (etlstocks.py) performs:
 
-Extract stock data from API
-Transform raw JSON into structured format
-Load processed data into PostgreSQL
+- Extract stock data from API
+- Transform raw JSON into structured format
+- Load processed data into PostgreSQL
 
-Scheduled execution ensures automated updates.
+**Scheduled execution ensures automated updates.**
 
-Testing
+## Testing
 
-Basic DAG integrity tests are included under tests/.
-More unit tests for ETL modules will be added.
+DAG integrity tests and unit tests for ETL modules will be added.
 
-Future Improvements
-Add data validation layer (schema enforcement)
-Implement retries + failure alerting
-Add Redis caching layer
-Cloud deployment (AWS/GCP)
-Monitoring & logging improvements
-Expand test coverage for ETL modules
-What This Project Demonstrates
-Backend engineering skills
-Data pipeline design
-Workflow orchestration (Airflow)
-Database design (PostgreSQL)
-Containerized systems (Docker)
-API integration
-Modular system architecture
+## Future Improvements
+
+- Add data validation layer (schema enforcement)
+- Implement retries + failure alerting
+- Add Redis caching layer
+- Cloud deployment (AWS/GCP)
+- Monitoring & logging 
+- Expand test coverage for ETL modules
