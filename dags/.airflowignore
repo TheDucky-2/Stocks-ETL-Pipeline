@@ -1,0 +1,9 @@
+src/
+tests/
+*.pyc
+.env
+__pycache__/
+*.json
+*.csv
+utils/
+scripts/
